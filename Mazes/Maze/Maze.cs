@@ -94,6 +94,11 @@ namespace Mazes.Core
 
         public bool ShouldBeReset { get; set; }
 
+        public int NbTurnsAndMoves => NbMoves + NbTurns;
+
+        public int NbTurns { get; set; }
+        public int NbMoves { get; set; }
+
         #endregion
 
         #region Implementation of IBuildableMaze
@@ -135,7 +140,6 @@ namespace Mazes.Core
             //TODO
             throw new NotImplementedException();
         }
-
         #endregion
 
         #region Watchers
@@ -187,6 +191,7 @@ namespace Mazes.Core
                     mazeWatcher.MouseHasMoved(newPosition);
                 }
             }
+            NbMoves++;
         }
 
         private void MouseHasTurned(Direction newDirection)
@@ -198,6 +203,7 @@ namespace Mazes.Core
                     mazeWatcher.MouseHasTurned(newDirection);
                 }
             }
+            NbTurns++;
         }
         private void MouseHasExitedMaze()
         {

@@ -100,6 +100,9 @@ namespace Mazes.Runner
         {
             running = false;
             Log("Yipee ! Mouse has exited");
+            Log("Nombre de tours : {0}",maze.NbTurns);
+            Log("Nombre de mouvements : {0}",maze.NbMoves);
+            Log("Nombre d'actions : {0}",maze.NbTurnsAndMoves);
         }
 
         void IMazeWatcher.YouHaveBeenUnsubscribed()
