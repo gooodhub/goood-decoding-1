@@ -40,7 +40,7 @@ namespace SampleMazeSolver
 
         public void YouWin()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void YouLoose()
