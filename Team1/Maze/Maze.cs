@@ -99,8 +99,7 @@ namespace Mazes.Core
 
         public bool AmIOut()
         {
-            //TODO
-            throw new NotImplementedException();
+            return x >= Width || y >= Height;
         }
 
         public bool ShouldBeReset { get; set; }
