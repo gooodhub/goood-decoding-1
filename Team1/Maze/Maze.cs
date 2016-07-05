@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Mazes.Core;
+using System.Windows.Forms;
 
 namespace Mazes.Core
 {
@@ -11,7 +12,6 @@ namespace Mazes.Core
     {
         private bool[,] HWalls;
         private bool[,] VWalls;
-        private Position[] visitedPositions { get; set; }
         private int x;
         private int y;
         private int Width;
@@ -99,7 +99,7 @@ namespace Mazes.Core
 
         public bool AmIOut()
         {
-            return x >= Width || y >= Height;
+            return x < 0 || y < 0 || x >= Width || y >= Height;
         }
 
         public bool ShouldBeReset { get; set; }
