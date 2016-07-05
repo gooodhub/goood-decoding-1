@@ -82,7 +82,8 @@ namespace Mazes.Core
 
         public bool CanIMove()
         {
-            return false;
+            //TODO
+            throw new NotImplementedException();
         }
 
         public bool AmIOut()
@@ -122,53 +123,22 @@ namespace Mazes.Core
 
         public void TurnLeft()
         {
-            switch (direction)
-            {
-                case Direction.North:
-                    direction = Direction.West;
-                    break;
-                case Direction.East:
-                    direction = Direction.North;
-                    break;
-                case Direction.South:
-                    direction = Direction.East;
-                    break;
-                case Direction.West:
-                    direction = Direction.South;
-                    break;
-                default:
-                    break;
-            }
+            //TODO
+            throw new NotImplementedException();
             MouseHasTurned(direction);
         }
 
         public void TurnRight()
         {
-            switch (direction)
-            {
-                case Direction.North:
-                    direction = Direction.East;
-                    break;
-                case Direction.East:
-                    direction = Direction.South;
-                    break;
-                case Direction.South:
-                    direction = Direction.West;
-                    break;
-                case Direction.West:
-                    direction = Direction.North;
-                    break;
-                default:
-                    break;
-            }
+            //TODO
+            throw new NotImplementedException();
             MouseHasTurned(direction);
         }
 
         public void Move()
         {
-            var next = Moves[(int)direction];
-            x += next.X;
-            y += next.Y;
+            //TODO
+            throw new NotImplementedException();
         }
         #endregion
 
