@@ -82,14 +82,15 @@ namespace Mazes.Core
 
         public bool CanIMove()
         {
-            //TODO
-            throw new NotImplementedException();
+            Position w2c = WallToCheck[(int)direction];
+            if (direction == Direction.North || direction == Direction.South)
+                return !(HWalls[x + w2c.X, y + w2c.Y]);
+            return !(VWalls[x + w2c.X, y + w2c.Y]);
         }
 
         public bool AmIOut()
         {
-            //TODO
-            throw new NotImplementedException();
+            return x < 0 || x >= Width || y < 0 || y >= Height;
         }
 
         public bool ShouldBeReset { get; set; }
