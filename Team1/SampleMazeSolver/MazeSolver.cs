@@ -19,10 +19,21 @@ namespace SampleMazeSolver
 
         public void YourTurn()
         {
-            mouse.TurnLeft();
+            mouse.TurnRight();
             if (maze.CanIMove())
             {
                 mouse.Move();
+            }
+            else
+            {
+                mouse.TurnLeft();
+                if (maze.CanIMove())
+                    mouse.Move();
+                else
+                {
+                    mouse.TurnLeft();
+                    mouse.Move();
+                }
             }
             
         }
