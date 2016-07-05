@@ -11,6 +11,7 @@ namespace Mazes.Core
     {
         private bool[,] HWalls;
         private bool[,] VWalls;
+        private Position[] visitedPositions { get; set; }
         private int x;
         private int y;
         private int Width;
@@ -82,6 +83,17 @@ namespace Mazes.Core
 
         public bool CanIMove()
         {
+            switch (direction)
+            {
+                case Direction.North:
+                case Direction.South:
+                    return !HWalls[x+WallToCheck[(int)direction].X, y+WallToCheck[(int)direction].Y];
+                case Direction.East:
+                case Direction.West:
+                    return !VWalls[x + WallToCheck[(int)direction].X, y + WallToCheck[(int)direction].Y];
+                default:
+                    break;
+            }
             return false;
         }
 
@@ -166,9 +178,17 @@ namespace Mazes.Core
 
         public void Move()
         {
+            if (!CanIMove())
+                return;
+
             var next = Moves[(int)direction];
             x += next.X;
             y += next.Y;
+
+            MouseHasMoved(new Position(x, y));
+
+            if (AmIOut())
+                MouseHasExitedMaze();
         }
         #endregion
 
